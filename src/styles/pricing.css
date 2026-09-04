@@ -1,0 +1,193 @@
+/* Pricing — built from the same tokens and rhythm as the home page. */
+
+.pricing-hero-inner {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 30px;
+  padding: 112px 40px 96px; max-width: 1200px;
+}
+.pricing-h1 {
+  margin: 0; font-family: var(--font-heading); font-weight: 400;
+  font-size: 62px; line-height: 1.06; letter-spacing: 0.005em;
+}
+
+/* ── tier cards ───────────────────────────────────────────────────────── */
+.tier-grid { display: grid; gap: 0; align-items: stretch; }
+.tier {
+  position: relative; display: flex; flex-direction: column; gap: 14px;
+  padding: 30px 26px 30px; border-top: 2px solid var(--color-accent);
+  border-right: 1px solid var(--color-divider);
+  transition: background 0.25s, border-top-color 0.25s;
+}
+.tier:last-child { border-right: 0; }
+.tier:hover { background: color-mix(in srgb, var(--color-accent) 4%, transparent); }
+.tier.is-featured { border-top-width: 4px; }
+.tier.is-chosen {
+  background: color-mix(in srgb, var(--color-accent) 7%, transparent);
+  border-top-color: var(--color-accent-700);
+}
+.tier-flag {
+  position: absolute; top: -2px; right: 0;
+  font-family: Jost, sans-serif; font-size: 10px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: #16150f; background: var(--color-accent);
+  padding: 4px 10px;
+}
+.tier.is-featured .tier-flag { top: -4px; }
+.tier-name { margin: 0; font-family: var(--font-heading); font-weight: 500; font-size: 26px; }
+.tier-price { font-family: var(--font-heading); font-size: 32px; line-height: 1; }
+.tier-hours {
+  font-family: Jost, sans-serif; font-size: 11px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--color-accent-700);
+}
+.tier-tag { margin: 0; font-size: 14px; line-height: 1.75; color: var(--color-neutral-700); }
+.tier-list {
+  display: flex; flex-direction: column; gap: 9px; flex: 1;
+  font-size: 13.5px; line-height: 1.6; color: var(--color-neutral-700);
+  margin: 6px 0 8px;
+}
+.tier-list li { display: flex; gap: 9px; }
+.tier-list .tick { color: var(--color-accent); flex: none; }
+.tier-pick {
+  color: var(--color-accent-700); border: 1px solid var(--color-accent);
+  background: transparent; text-align: center;
+}
+.tier-pick:hover { background: rgba(182, 130, 53, 0.1); }
+
+/* ── comparison table ─────────────────────────────────────────────────── */
+.compare-toggle {
+  display: inline-flex; align-items: center; gap: 12px; margin-top: 40px;
+  padding: 14px 0; background: transparent; border: 0; cursor: pointer;
+  font-family: Jost, sans-serif; font-size: 12px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--color-accent-700);
+}
+.compare-toggle:hover { color: var(--color-accent-600); }
+.compare-wrap { overflow-x: auto; margin-top: 8px; animation: note-in 0.3s ease; }
+.compare { min-width: 720px; }
+.compare th[scope='row'] { font-size: 13.5px; letter-spacing: 0; text-transform: none; color: var(--color-text); font-weight: 400; }
+.compare thead th { font-family: Jost, sans-serif; }
+.compare td { text-align: center; }
+.compare .yes { color: var(--color-accent); }
+.compare .no { color: var(--color-neutral-400); }
+
+/* ── quote builder ────────────────────────────────────────────────────── */
+.builder { display: grid; gap: 56px; align-items: start; }
+.builder-choices { display: flex; flex-direction: column; gap: 40px; min-width: 0; }
+.bl { border: 0; padding: 0; margin: 0; }
+.bl-legend {
+  padding: 0 0 16px; font-family: Jost, sans-serif; font-size: 11px;
+  letter-spacing: 0.24em; text-transform: uppercase; color: var(--color-accent-700);
+}
+
+.chip-row { display: flex; flex-wrap: wrap; gap: 10px; }
+.chip {
+  display: flex; flex-direction: column; gap: 4px; align-items: flex-start;
+  padding: 12px 18px; cursor: pointer; background: transparent;
+  border: 1px solid var(--color-divider); color: var(--color-text);
+  font-family: var(--font-heading); font-size: 17px;
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+.chip:hover { border-color: var(--color-accent); }
+.chip.is-on {
+  border-color: var(--color-accent); color: var(--color-accent-700);
+  background: color-mix(in srgb, var(--color-accent) 9%, transparent);
+  box-shadow: inset 0 0 0 1px var(--color-accent);
+}
+.chip-price {
+  font-family: Jost, sans-serif; font-size: 11px; letter-spacing: 0.14em;
+  color: var(--color-neutral-600);
+}
+.chip.is-on .chip-price { color: var(--color-accent-700); }
+
+.addon-list { display: flex; flex-direction: column; }
+.addon {
+  display: flex; align-items: flex-start; gap: 14px; padding: 15px 4px;
+  cursor: pointer; border-top: 1px solid var(--color-divider);
+  transition: background 0.2s;
+}
+.addon:last-child { border-bottom: 1px solid var(--color-divider); }
+.addon:hover { background: color-mix(in srgb, var(--color-text) 3%, transparent); }
+.addon input { position: absolute; opacity: 0; width: 0; height: 0; pointer-events: none; }
+.addon-box {
+  width: 16px; height: 16px; flex: none; margin-top: 3px;
+  border: 1.5px solid var(--color-divider); transition: background 0.15s, border-color 0.15s;
+}
+.addon:hover .addon-box { border-color: var(--color-accent); }
+.addon.is-on .addon-box {
+  border-color: var(--color-accent); background: var(--color-accent);
+  box-shadow: inset 0 0 0 3px var(--color-bg);
+}
+.addon input:focus-visible + .addon-box { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+.addon-text { display: flex; flex-direction: column; gap: 3px; flex: 1; min-width: 0; }
+.addon-label { font-size: 14.5px; }
+.addon-note { font-size: 12px; color: var(--color-neutral-600); }
+.addon-price { font-size: 13.5px; color: var(--color-neutral-700); flex: none; }
+.addon.is-on .addon-price { color: var(--color-accent-700); }
+
+.builder-where { display: grid; gap: 20px; }
+.stepper {
+  display: flex; align-items: center; gap: 0;
+  border: 1px solid var(--color-divider); border-radius: var(--radius-md);
+  height: 36px; width: fit-content;
+}
+.stepper button {
+  width: 38px; height: 100%; background: transparent; border: 0; cursor: pointer;
+  font-size: 17px; line-height: 1; color: var(--color-accent-700);
+}
+.stepper button:hover { background: color-mix(in srgb, var(--color-accent) 12%, transparent); }
+.stepper output {
+  min-width: 44px; text-align: center; font-size: 14px;
+  border-left: 1px solid var(--color-divider); border-right: 1px solid var(--color-divider);
+  line-height: 34px; height: 100%;
+}
+.builder-travel {
+  margin: 18px 0 0; padding: 16px 18px; border: 1px solid var(--color-accent);
+  font-size: 13.5px; line-height: 1.8; color: var(--color-neutral-700);
+  animation: note-in 0.3s ease;
+}
+
+/* the running estimate */
+.quote-card {
+  position: sticky; top: 98px;
+  display: flex; flex-direction: column; gap: 18px;
+  border: 1px solid var(--color-divider); background: var(--color-surface);
+  padding: 34px;
+}
+.quote-head { display: flex; flex-direction: column; gap: 6px; }
+.quote-pkg { margin: 0; font-family: var(--font-heading); font-weight: 400; font-size: 32px; }
+.quote-sub {
+  font-family: Jost, sans-serif; font-size: 11px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--color-neutral-600);
+}
+.quote-lines { display: flex; flex-direction: column; gap: 10px; margin: 0; }
+.quote-line {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 18px;
+  font-size: 13.5px; color: var(--color-neutral-700);
+}
+.quote-line dt { min-width: 0; }
+.quote-line dd { margin: 0; flex: none; }
+.quote-total {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 18px;
+  font-family: var(--font-heading); font-size: 17px;
+}
+.quote-total strong { font-size: 30px; font-weight: 400; }
+.quote-deposit {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 18px;
+  font-size: 13px; color: var(--color-accent-700);
+}
+.quote-cta { margin-top: 6px; text-align: center; }
+.quote-small { margin: 0; font-size: 11.5px; line-height: 1.7; color: var(--color-neutral-600); }
+
+.terms-grid { display: grid; gap: 40px 32px; }
+
+@media (max-width: 1180px) {
+  .pricing-h1 { font-size: 48px; }
+  .tier-grid { gap: 0 28px; }
+  .tier { border-right: 0; }
+  .quote-card { position: static; }
+}
+
+@media (max-width: 760px) {
+  .pricing-hero-inner { padding: 76px 24px 68px; }
+  .pricing-h1 { font-size: 36px; }
+  .tier-grid { gap: 34px; }
+  .quote-card { padding: 26px; }
+  .quote-total strong { font-size: 26px; }
+}
