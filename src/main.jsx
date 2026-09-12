@@ -10,7 +10,8 @@ import './styles/pricing.css';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
+    {/* BASE_URL is "/" locally and "/Lumiere/" in the Pages build. */}
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <App />
     </BrowserRouter>
   </StrictMode>,

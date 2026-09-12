@@ -5,6 +5,11 @@ built from the published Claude Design artifact.
 
 Lumière is a photobooth service based in Abuja, travelling nationwide.
 
+**Live:** https://nooralkali.github.io/Lumiere/
+
+Every push to `main` rebuilds and redeploys the site through
+`.github/workflows/deploy.yml`.
+
 ## Running it
 
 ```bash
@@ -83,3 +88,11 @@ design does.
 Cormorant Garamond, Lora and Jost are served from `src/assets/fonts` rather than a
 CDN, with the original subsets and unicode ranges, so the page renders correctly
 with no third-party request.
+
+## Deployment
+
+GitHub Pages serves the site from `/Lumiere/`, so the CI build sets Vite's
+`base` to that prefix (local dev and preview stay at `/`) and the router takes
+its basename from `import.meta.env.BASE_URL`. Pages has no SPA rewrite, so the
+build also writes `dist/404.html` as a copy of `index.html` — a direct hit on
+`/pricing` is served that file and the router resolves the route from there.
