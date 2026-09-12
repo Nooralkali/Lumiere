@@ -10,6 +10,11 @@ Lumière is a photobooth service based in Abuja, travelling nationwide.
 Every push to `main` rebuilds and redeploys the site through
 `.github/workflows/deploy.yml`.
 
+> **One-time setup:** in the repo's **Settings → Pages**, set **Source** to
+> **GitHub Actions**. A workflow's `GITHUB_TOKEN` is not permitted to switch
+> Pages on, so the first deploy needs that toggle flipped by hand; every deploy
+> after it is automatic.
+
 ## Running it
 
 ```bash
